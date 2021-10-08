@@ -8,9 +8,14 @@ public class Enemy : MonoBehaviour
 
     public GameHandler _gameHandler;
 
+    public List<Sprite> enemySprites;
+
     void Start()
     {
         _gameHandler = GameObject.FindObjectOfType<GameHandler>();
+
+        int randomIndex = Random.Range(0, enemySprites.Count);
+        GetComponent<SpriteRenderer>().sprite = enemySprites[randomIndex];
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

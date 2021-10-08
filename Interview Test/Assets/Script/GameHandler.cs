@@ -25,7 +25,7 @@ public class GameHandler : MonoBehaviour
 
     public void CreateBird()
     {
-        if (_currentBird == null || _currentBird.GetComponent<Bird>().IsThrown)
+        if (_remainingChances > 0 && (_currentBird == null || _currentBird.GetComponent<Bird>().IsThrown))
         {
             GameObject newBird = Instantiate(birdRef, hookRef.transform.position, Quaternion.identity);
             newBird.GetComponent<SpringJoint2D>().connectedBody = hookRef;
